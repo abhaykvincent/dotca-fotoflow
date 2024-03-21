@@ -1,0 +1,82 @@
+@import '../../../style/variables';
+.form-screen{
+    &.client-details{
+        transform: translateX(100vw);
+        opacity: 0;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in;
+        &.active{
+            transform: translateX(0);
+            opacity: 1;
+            transition-duration: 0.4s;
+            transition-timing-function: ease-out;
+        }
+        &.hide{
+            transform: translateX(-100vw) ;
+            opacity: 0;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in;
+        }
+        form{
+
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 8px*4;
+            .group-right{
+                display: grid;
+                gap: 8px*3;
+                align-content: space-between;
+            }
+            .client-form{
+                input{
+                    text-align: left;
+                    padding: 8px 8px*2;
+                }
+            }
+        }
+        .form-section{
+            h4{
+                margin-bottom: 8px;
+            }
+            .form-group{
+                margin-bottom: 8px*2;
+                &:last-child{
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .client-short-summary{
+            text-align: center;
+            padding: 8px*6 8px*4;
+            .event-symbol{
+                width: 100%;
+                padding: 8px*4;
+                background-image: url('../../../assets/img/wedding-symbol.png');
+                background-size: contain;
+                background-position: center;
+            }
+            .event-type{
+                margin-bottom: 8px;
+                margin-top: 8px*2;
+            }
+            h4{
+                color: $dark-0;
+            }
+            .form-group{
+                font-size: 0.9rem;
+                margin-bottom: 0;
+                margin-top: 8px*2;
+                .event-date{
+                    font-weight: 600;
+                    margin-bottom: 4px;
+                }
+                .event-time{
+                    color: $gray4-accessible-dark;
+                }
+                .event-location{
+                    color: $gray4-accessible-dark;
+                }
+            }
+        }
+    }
+}

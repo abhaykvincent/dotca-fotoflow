@@ -1,0 +1,37 @@
+@import '../../../style/variables';
+.form-screen{
+    &.thanks{
+        height: calc(100vh - 8px*20);
+        p{
+            color: $dark-2;
+        }
+        transform: translateX(100vw);
+        opacity: 0;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in;
+        &.active{
+            transform: translateX(0);
+            opacity: 1;
+            transition-duration: 0.4s;
+            transition-timing-function: ease-out;
+        }
+        &.hide{
+            transform: translateX(-100vw) ;
+            opacity: 0;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in;
+        }
+        .form-section{
+            margin-bottom: 8px;
+            h3{
+                margin-bottom: 8px*2;
+            }
+            h4{
+                margin: 8px 0;
+            }
+        }
+        .privacy-statment{
+            padding: 0 8px*4;
+        }
+    }
+}

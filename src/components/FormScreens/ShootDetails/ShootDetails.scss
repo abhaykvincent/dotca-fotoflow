@@ -1,0 +1,160 @@
+@import '../../../style/variables';
+.form-screen{
+    &.shoot-details{
+        transform: translateX(100vw);
+        opacity: 0;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in;
+        &.active{
+            transform: translateX(0);
+            opacity: 1;
+            transition-delay: 0.1s;
+            transition-duration: 0.4s;
+            transition-timing-function: ease-out;
+        }
+        &.hide{
+            transform: translateX(-100vw) ;
+            opacity: 0;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in;
+        }
+        .form-section{
+            h4{
+                margin-bottom: 8px;
+                font-size: 1.5rem;
+                margin-bottom: 8px*3;
+                background: linear-gradient(900deg ,white, white 80%,rgba(127, 22, 22, 0));
+                color: $gray5-accessible-dark;
+            }
+            &.event-types{
+                .form-group{
+                    display: grid;
+                    grid-template-columns:  3fr 3fr 3fr 3fr 3fr;
+                    gap: 8px*2;
+                    .event-type{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 8px*15;
+                        border: 1px solid $gray4-default-light;
+                        border-radius: 4px;
+                        &.active{
+                            color: white;
+                            border: 2px solid $dark-3;
+                            background-color: $dark-3;
+                            font-weight: 600;
+                            &:hover{
+                                border: 2px solid $dark-0;
+                            }
+                        }
+                        &:hover{
+                            border: 2px solid $gray-default-light;
+                        }
+                    }
+                }
+            }
+            &.event-details{
+                display: grid;
+                grid-template-columns:  1fr 1fr;
+                gap: 8px*4;
+                color: $gray5-default-dark;
+                .form-group{}
+                .right-group{
+                    display:grid;
+                    gap: 8px*3;
+                    h4{
+                        position: sticky;
+                        top: 8px*0;
+                        font-size: 1.5rem;
+                        padding-top: 8px*0;
+                        background: linear-gradient(900deg ,white, white 80%,rgba(127, 22, 22, 0));
+                        color: $gray5-accessible-dark;
+                    }
+                }
+                .event-date{
+                    .date-list{
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                        .date{
+                            position: relative;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 8px*6;
+                            height: 8px*6;
+                            font-size: 0.9rem;
+                            background-color: $gray6-accessible-light;
+                            border: 1px solid white;
+                            cursor: pointer;
+                            &.active{
+                                color: white;
+                                background-color: $dark-3
+                            }
+                            &:hover{
+                                background-color: black;
+                                color: white;
+                            }
+                            &.disabled{
+                                background-color: transparent;
+                                color: $gray-default-dark;
+                                cursor: not-allowed;
+                            }
+                            &:first-child{
+                                &::after{
+                                    position: absolute;
+                                    bottom: 8px;
+                                    content: '';
+                                    padding: 2px;
+                                    border-radius: 100%;
+                                    background-color: $gray5-accessible-dark;
+                                }
+                            }
+                        }
+                    }
+                    .day-list{
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+                        gap: 0px;
+                        .day{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 8px*6;
+                            height: 8px*6;
+                            font-size: 0.9rem;
+                            font-weight: 600;
+                        }
+                    }
+                }
+                .event-time{
+                }
+                .event-durations{
+                    .duration-list{
+                        display: grid;
+                        grid-template-columns: 1fr 1fr 1fr;
+                        gap: 8px;
+                        .duration{
+                            padding: 8px;
+                            text-align: center;
+                            font-size: 0.9rem;
+                            border: 1px solid $gray4-default-light;
+                            border-radius: 4px;
+                            box-shadow: 2px 2px 2px  rgba(0, 0, 0, 0.1);
+                            cursor: pointer;
+                            &.custom{
+                                grid-column: 2/4;
+                                border-radius: 0px;
+                                box-shadow: inset 0px 1px 2px  rgba(0, 0, 0, 0.1);
+                                color: $dark-1;
+                            }
+                            &.selected{
+                                color: white;
+                                background-color: black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

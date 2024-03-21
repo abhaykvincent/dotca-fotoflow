@@ -1,0 +1,62 @@
+@import '../../../style/variables';
+.form-screen{
+    &.form-review{
+        height: calc(100vh - 8px*20);
+        
+        form{
+            max-width: 8px*80 !important;
+        }
+        p{
+            color: $dark-2;
+        }
+        transform: translateX(100vw);
+        opacity: 0;
+        transition-duration: 0.2s;
+        transition-timing-function: ease-in;
+        &.active{
+            transform: translateX(0);
+            opacity: 1;
+            transition-duration: 0.4s;
+            transition-timing-function: ease-out;
+        }
+        &.hide{
+            height: 0;
+            transform: translateX(-100vw) ;
+            opacity: 0;
+            transition-duration: 0.2s;
+            transition-timing-function: ease-in;
+        }
+        .form-section{
+            margin-bottom: 8px;
+            h3{
+                font-weight: 700;
+                margin-bottom: 8px;
+                color: $dark-0;
+            }
+            h4{
+                margin: 8px 0;
+            }
+            .lighter{
+                color: $gray2-accessible-dark;
+            }
+            .bolder{
+
+                font-weight: 600;
+                line-height: 1.7rem;
+            }
+            p{
+                font-weight: 500;
+                line-height: 1.5rem;
+            }
+        }
+        .privacy-statment{
+            padding: 0 ;
+            text-align: center;
+            color: $dark-0;
+            span{
+                color: $dark-3;
+                text-decoration: underline;
+            }
+        }
+    }
+}

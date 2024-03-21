@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="137.686" height="130.44" viewBox="0 0 137.686 130.44">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.391" x2="0.644" y2="1.034" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#2eb943"/>
+      <stop offset="1" stop-color="#135c1d"/>
+    </linearGradient>
+  </defs>
+  <path id="Icon_material-account-balance-wallet" data-name="Icon material-account-balance-wallet" d="M134.94,113.2v7.247a14.536,14.536,0,0,1-14.493,14.493H18.993A14.493,14.493,0,0,1,4.5,120.446V18.993A14.493,14.493,0,0,1,18.993,4.5H120.446A14.536,14.536,0,0,1,134.94,18.993V26.24H69.72A14.493,14.493,0,0,0,55.227,40.733V98.706A14.493,14.493,0,0,0,69.72,113.2ZM69.72,98.706h72.467V40.733H69.72ZM98.706,80.59a10.87,10.87,0,1,1,10.87-10.87A10.855,10.855,0,0,1,98.706,80.59Z" transform="translate(-4.5 -4.5)" fill="url(#linear-gradient)"/>
+</svg>
