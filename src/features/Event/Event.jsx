@@ -11,6 +11,7 @@ import { deleteEventFromFirestore, rescheduleEventDateInFirestore, updateEventSt
 import { capitalizeFirstLetter, convert24To12HourFormat, convertDateFormat, convertDateFormatDay, convertDateFormatMDY, convertToGoogleMapsURL } from '../../utils/stringUtils';
 import ExpanceInsight from '../../components/ExpanceInsight/ExpanceInsight';
 import Calendar from 'react-calendar';
+import { uploadEventCoverPhoto } from '../../utils/storageOperations';
 
 export default function Event({ events,updateEventLocal,deleteEventLocal,addPaymentLocal,updatePaymentLocal,showAlert}) {
   const navigate = useNavigate();
@@ -18,6 +19,10 @@ export default function Event({ events,updateEventLocal,deleteEventLocal,addPaym
   // States
   const [ rescheduleModal, setReschduleModal ] = useState(false);
   const [rescheduleDate, setRescheduleDate] = useState();
+  const [coverFile,setCoverFile]  = useState()
+  const  [isPhotosImported,setIsPhotosImported] = useState(false)
+  const [importFileSize, setImportFileSize] = useState();
+  const  [uploadStatus,setUploadStatus] = useState('close')
 
   let event;
   useEffect(()=>{
@@ -63,16 +68,55 @@ export default function Event({ events,updateEventLocal,deleteEventLocal,addPaym
     })
     setReschduleModal(false);
   }
+  // function to import file from file input to store
+  // later uploadCover can upload file to firestoreee
+  const handleFileInputChange = async (e) => {
+    const selectedFiles = Array.from(e.target.files);
+    setIsPhotosImported(true);
+    setUploadStatus('open')
+    setIsPhotosImported(false);
+    let uploadedCover=await uploadEventCoverPhoto(selectedFiles[0], id,importFileSize,setUploadStatus,showAlert)
+    // console.log(uploadedImages)
+    setCoverFile(uploadedCover)
+    let updatedEvent = {...event, ...{eventCover:uploadedCover}}
+    console.log(updatedEvent)
+    updateEventLocal(event.id, updatedEvent)
+};
 
+  // fuynction to upload cover image from file input to 
+  const uploadCover =()=>{
+    console.log('upload cover')
+  }
   
-
 
   return (
     <main className='event-page'>
       <div className="event-cover-info">
-        <div className={`event-cover box ${event.type}`}></div>
-      <div className="event-info">
+        <div 
+        className={`event-cover box ${event.type} ${uploadStatus==='open' ? 'uploading' : ''}`}
+        style={{backgroundImage:`url(${uploadStatus==='open' ? 'https://media.tenor.com/t5DMW5PI8mgAAAAi/loading-green-loading.gif' : event.eventCover} )`}}>
 
+        <div className="options">
+          {
+            event.eventCover===undefined ?
+            <>
+              <label htmlFor="fileInput" className={`button ${isPhotosImported ? 'secondary' : 'tertiary'}`} >Upload Cover
+              </label>
+              <input id='fileInput' type="file" multiple onChange={handleFileInputChange} />
+              
+            </> :
+             <>
+              <label htmlFor="fileInput" className={`button ${isPhotosImported ? 'secondary' : 'tertiary'}`} >Update Cover
+              </label>
+              <input id='fileInput' type="file" multiple onChange={handleFileInputChange} />
+              
+            </>
+          }
+          
+        </div>
+        </div>
+          
+      <div className="event-info">
         <div className="client">
           <h1>{event.firstName} {event.lastName}</h1>
           <div className="type">{capitalizeFirstLetter(event.type)}</div>

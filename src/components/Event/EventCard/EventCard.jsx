@@ -32,8 +32,8 @@ function EventCard({event,filter, key, index}) {
             <div
                 className={`project-cover ${event.type}`}
                 style={{
-                    backgroundImage: event.projectCover ? `url(${event.projectCover})` : '',
-                    backgroundSize: event.projectCover ? 'cover' : '',
+                    backgroundImage: event.eventCover ? `url(${event.eventCover})` : '',
+                    backgroundSize: event.eventCover ? 'cover' : '',
                 }}
             />
         </div>

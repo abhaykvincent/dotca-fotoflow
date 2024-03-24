@@ -70,7 +70,6 @@ export const fetchEvents = async () => {
     return eventsData
 };
 
-  
 // Project Operations
 export const addProject = async ({ name, type, ...optionalData }) => {
     if (!name || !type) {
@@ -120,7 +119,6 @@ export const deleteProjectFromFirestore = async (projectId) => {
   };
   
 // Collection Operations
-
 export const addCollectionToFirestore = async (projectId,collectionData) => {
     const {name,status} =collectionData;
     const id= `${name.toLowerCase().replace(/\s/g, '-')}-${generateRandomString(5)}`;
@@ -150,7 +148,6 @@ export const addCollectionToFirestore = async (projectId,collectionData) => {
         throw error;
     });
 };
-
 export const deleteCollectionFromFirestore = async (projectId, collectionId) => {
     if (!projectId || !collectionId) {
         throw new Error('Project ID and Collection ID are required for deletion.');
@@ -260,7 +257,7 @@ export const updateProjectStatusInFirestore = async (projectId, status) => {
         throw error;
     }
 }
-// Set cover photo
+// Set Project cover photo
 export const setCoverPhotoInFirestore = async (projectId, image) => {
     if (!projectId || !image) {
         throw new Error('Project ID and Image are required.');
@@ -455,7 +452,31 @@ export const  rescheduleEventDateInFirestore = async (eventId,date) => {
         throw error;
     }
 }
+// Set Event Cover
+export const setEventCoverPhotoInFirestore = async (eventId, image) => {
+    if (!eventId || !image) {
+        throw new Error('Event ID and Image are required.');
+    }
 
+    const eventsCollection = collection(db, 'events');
+    const eventDoc = doc(eventsCollection, eventId);
+
+    try {
+        const eventSnapshot = await getDoc(eventDoc);
+        const eventData = eventSnapshot.data();
+
+        if (eventSnapshot.exists()) {
+            await updateDoc(eventDoc, { eventCover: image });
+            console.log('Cover photo updated successfully.');
+        } else {
+            console.log('Event document does not exist.');
+            throw new Error('Event does not exist.');
+        }
+    } catch (error) {
+        console.error('Error updating cover photo:', error.message);
+        throw error;
+    }
+}
 
 // add wishlist status for STUDIO plan to use userid
 export const addWishlistToFirestore = async (userId, productId) => {
