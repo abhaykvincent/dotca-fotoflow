@@ -10,20 +10,12 @@
 
   // Event filters
   export const getRecentEvents = (events, limit, exclude) => {
-    //exclude is an array 
+    // exclude is an array
     // remove all elements in exclude array from events
-    const filtered = events.filter(event => {
-      if (event.status==='pending') {
-        return false;
-      }
-      return true;}
-      );
-    // console.log(filtered)
+    const filtered = events.filter(event => !exclude.includes(event));
     return filtered
-    .sort((a, b) => b.createdAt - a.createdAt)
-    .slice(0, limit);
-    
-
+      .sort((a, b) => b.createdAt - a.createdAt)
+      .slice(0, limit);
   };
   //get events only this week within 7 days
   export const getWeekEvents = (events, limit) => {

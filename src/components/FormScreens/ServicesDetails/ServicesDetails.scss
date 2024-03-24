@@ -178,6 +178,8 @@
             }
         }
         .price-overview-wrap{
+            position: sticky;
+            bottom: 0;
             display: grid;
             height: 8px*14;
             bottom: 0px;

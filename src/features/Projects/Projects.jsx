@@ -47,28 +47,24 @@ function Projects({ projects, addProject, showAlert, isLoading }) {
                         index={index}
                     /> 
                     ))) : (
-                        <>
+                    <>
                         <div className="section recent">
-                <h3 className='section-heading'>Recent Projects</h3>
+                            <h3 className='section-heading'>Recent Projects</h3>
                         </div>
 
                         <Link className="project new"  >
-                            <div className="project-cover"
-                            ></div>
+                            <div className="project-cover"></div>
                             <div className="project-details">
                                 <div className="details-top">
-
                                     <h4 className="project-title">Create Your First Project</h4>
                                     <p className="project-type"></p>
                                 </div>
                             </div>
                             <div className="project-options">
-                                
                             </div>
                         </Link>
-                        </>
-                    )
-                    }
+                    </>
+                    )}
                 </div>
             
             <AddProjectModal visible={modal.createProject} onClose={closeModal} onSubmit={addProject} showAlert={showAlert} />

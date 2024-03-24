@@ -11,20 +11,10 @@ function Subscription({ }) {
             <div className="welcome-section">
                 <div className="welcome-content">
                     <div className='welcome-message-top user-name'>
-                        <h1 className='welcome-message '>Ugrade to</h1>
-                        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-                            {/* Define the linear gradient */}
-                            <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" style={{ stopColor: '#30d158', stopOpacity: 1 }} />
-                                <stop offset="100%" style={{ stopColor: '#136a29', stopOpacity: 1 }} />
-                            </linearGradient>
-                            {/* Apply the gradient to the text */}
-                            <text x="136px" y="46px" fontFamily="Arial" fontSize="3rem" font-fontWeight="800" fill="url(#textGradient)" textAnchor="middle">
-                                Studio Plan
-                            </text>
-                        </svg>
+                        <h1 className='welcome-message '>Upgrade to <span className='iconic-gradient'>Studio Plan</span>!</h1>
+                        
+                    <h2 className='welcome-message'>Manage you <span className='bold'>Payments</span> & <span className='bold'>Crew.</span> </h2>
                     </div>
-                    <h1 className='welcome-message'>Elevate Your Photo Game! </h1>
                 </div>
             </div>
             <div className="plans-container">
@@ -61,15 +51,15 @@ function Subscription({ }) {
                             <h4>Gallery</h4>
                         </div>
                         <div className="plan-features">
-                            <p className="features">Unlimited Events</p>
-                            <p className="features">Unlimited Galleries</p>
+                            <p className="features">Events</p>
+                            <p className="features">Galleries</p>
                         </div>
                         <div className="validity disable">
                             <p className='label'>Plan expries on</p>
                             <p>31 March 2025</p>
                             </div>
-                        <div className="button primary outline disable">Current Plan</div>
                         <p className='payment-status'>Payment Pending</p>
+                        <div className="button primary outline ">Current Plan</div>
                     </div>
 
                     <div className="plan studio">
@@ -89,8 +79,7 @@ function Subscription({ }) {
                             <div className=" first-month">First 2 month on us</div>
                         </div>
                         <div className="core-features">
-                            <h4>512GB Hot &</h4>
-                            <h4>256GB Cold storage</h4>
+                            <h4>512 GB Storage</h4>
                             <h4>Accounts</h4>
                             <h4>Teams</h4>
                         </div>

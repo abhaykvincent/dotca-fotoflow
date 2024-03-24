@@ -78,7 +78,7 @@ const FormReview = ({ formData,setFormData, currentForm, setCurrentForm, handleS
               setCurrentForm('thanks')
               handleSubmit()
             }}
-            >FINISH</div>
+            >BOOK SHOOT</div>
     </form>:
       <form>
         <div className="form-section">

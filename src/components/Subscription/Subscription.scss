@@ -1,50 +1,56 @@
 @import '../../style/variables';
 
-.subscription{
+.subscription{ 
+    display: grid;
+    text-align: center;
     .welcome-section{
         padding: 8px*2;    
         display: grid;
-        grid-template-columns: 1fr 8px*20;
+        grid-template-columns: 1fr;
         justify-content: space-between;
         font-family: "Product Sans";
         .welcome-message-top{
-            display: FLEX;
-            svg{
+            display: grid;
+            grid-template-columns: auto ;
+            justify-content: center;
+            gap: 0px;
+            h1{
+                line-height: 3rem;
                 opacity: 0;
-                animation: fadeInLeft 0.5s ease-out 0.03s;
+                animation: fadeInLeft 0.5s ease-out 0.1s;
                 animation-fill-mode: forwards;
                 animation-timing-function: ease-out;
-                height: 4rem;
-                text{
-                    text-align: left;
-                    font-weight: 600;
-                    opacity: 1;
-                    font-family: "Product Sans";
+                span.iconic-gradient{
+                    line-height: 1rem;
+                    background: linear-gradient(90deg,  $green-accessible-dark 0%,  $green-dark-accessible-light 90%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
                 }
+            
             }
-            h1{
-            //text break no 
-            white-space: nowrap;
-            opacity: 0;
-            animation: fadeInLeft 0.5s ease-out 0s;
-            animation-fill-mode: forwards;
-            animation-timing-function: ease-out;
+            h2{
+                margin-top: 0rem;
+                font-size:2.5rem;
+                line-height: 2.4rem;
+                color: $gray4-default-dark;
+                opacity: 0;
+                animation: fadeInLeft 0.5s ease-out 0.40s;
+                animation-fill-mode: forwards;
+                animation-timing-function: ease-out;
             }
         }
         .welcome-message{
             font-size:3rem;
             font-weight: 600;
             color: $gray2-default-dark;
-                &:last-child{
-                    margin-top: -1rem;
-                    color: $gray4-default-dark;
-                    opacity: 0;
-                    animation: fadeInLeft 0.5s ease-out 0.05s;
-                    animation-fill-mode: forwards;
-                    animation-timing-function: ease-out;
-                }
-            span{
+            min-height: 8px*7;
+            
                 
+                
+            span{
+                &.bold{
+                    color: $gray2-accessible-light;
+                }
             }
             .actions{
                 display: flex;
@@ -55,7 +61,7 @@
             display: flex;
             justify-content: flex-end;
             opacity: 0;
-            animation : fadeInLeft 0.5s ease-out 0.2s;
+            animation : fadeInLeft 0.5s ease-out 0.3s;
             animation-fill-mode: forwards;
         }
         
@@ -173,14 +179,19 @@
     .plans-container{
         margin-left: 8px*2;
         margin-top: 8px*2;
+        opacity: 0;
+        animation: fadeInLeft 0.5s ease-out 0.5s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-out;
         .subscriptions-heading{
             margin-bottom: 8px*4;
             font-size: 1.8rem;
             font-weight: normal;
-            color: $gray4-accessible-light;
+            color: $gray6-accessible-light;
         }
         .plans{
             display: grid;
+            justify-content: center;
             grid-template-columns: minmax(100px, 240px) minmax(100px, 240px);
             gap: 8px*4;
             align-items: start;
@@ -189,7 +200,7 @@
                 padding: 8px*4;
                 border-radius: 8px;
                 border: 1px solid $dark-1;
-                background: black;
+                background-color: $dark-2;
                 .plan-name{
                     font-size: 1rem;
                     color: $gray3-accessible-dark;
@@ -197,10 +208,14 @@
                 }
                 .plan-pricing{
                     display: flex;
-                    align-items: end;
+                    align-items: center;
+                    justify-content: center;
                     gap:8px;
                     padding: 8px*2 0px;
                     padding-top: 8px*0;
+                    h1{
+                        color: $gray4-accessible-light;
+                    }
                     .unit{
                         font-size: 0.8rem;
                         color: $gray4-accessible-dark;
@@ -225,8 +240,8 @@
                             font-weight: normal;
                         }
                         .unit{
-                            font-size: 0.6rem;
-                            color: $gray3-accessible-dark;
+                            font-size: 0.8rem;
+                            color: $gray-accessible-dark;
                             line-height: 1rem;
                             span{
                                 font-size: 0.8rem;
@@ -255,9 +270,10 @@
                     margin-bottom: 8px*2;
                     margin-top: 8px*1;
                     h4{
+                        font-size: 1.1rem;
                         margin-bottom: 8px;
-                        line-height:0.75rem;
-                        color: $gray3-accessible-light;
+                        line-height:0.9rem;
+                        color: $gray5-accessible-light;
                     }
                 }
                 .validity{
@@ -279,9 +295,9 @@
                 }
                 .payment-status{
                     font-size: 0.9rem;
-                    margin-top: 8px*2;
+                    margin-bottom: 8px*1;
                     text-align: center;
-                    color: $orange-default-light;
+                    color: $gray5-default-light;
                 }
                 .waitlist-label{
                     font-size: 0.7rem;
@@ -291,10 +307,17 @@
                 .button{
                     width: 100%;
                     margin: 0;
-                    margin-bottom: -8px;
+                    margin-bottom: 0px;
                 }
                 &.studio{
                     border: 2px solid $gray-accessible-dark;
+                    background-color: $dark-3;
+                    padding-bottom: 8px*3;
+                    overflow: hidden;
+                *{
+
+                    z-index: 2;
+                }
                     .plan-name{
                         text-align: center;
                         color: $green-accessible-dark;
@@ -302,15 +325,25 @@
                         width: 100%;
                         padding-top: 80%;
                         background-image: url('../../assets/img/subscription/green-spheret-3d.avif');
+                        background-color: $dark-3;
                         background-size: 90%;
                         background-position: center center;
-                        background-blend-mode:color;
+                        background-blend-mode:lighten;
                         opacity: 0.8;
+                        z-index: 0;
+                        animation-name: rotate-globe  ;
+                        animation-duration:  30s;
+                        animation-timing-function: linear;
+                        animation-iteration-count: infinite;
+
                     }
                 }
                 &.freelancer{
-                    padding-bottom: 8px*2;
-                    border: 1px solid $green-accessible-dark;
+                    padding-bottom: 8px*3;
+                    background-color: $dark-3;
+                    border: 1px solid $green-accessible-light;
+                    overflow: hidden;
+
                     .plan-name{
                         text-align: center;
                     }
@@ -318,9 +351,10 @@
                         width: 100%;
                         padding-top: 80%;
                         background-image: url('../../assets/img/subscription/gray-sphere-3d.avif');
+                        background-color: $dark-3;
                         background-size: 80%;
                         background-position: center;
-                        background-blend-mode:color;
+                        background-blend-mode:lighten;
                         opacity: 0.8;
                     }
                     .button{
@@ -337,11 +371,11 @@
 @keyframes fadeInLeft {
     0% {
       opacity: 0;
-      transform: translateX(8px*4);
+      margin-left: 8px*4;
     }
     100% {
       opacity: 1;
-      transform: translateX(0);
+      margin-left: 0;
     }
   }
 
@@ -403,23 +437,33 @@
             }
         }
     }
+    
+    .subscription .plans-container .plans{
+        padding: 8px*2;
+        grid-template-columns: 1fr;
+    }
 }
   @media only screen and (max-width: 430px) {
 
     .home .section .projects{
         grid-template-columns: 1fr  ;
     }
-    .home 
+    .subscription 
     {
         .welcome-section{
             grid-template-columns: 1fr;
-            .welcome-message{
-                &:last-child{
-                    margin-top: 0;
+            .welcome-message-top
+            {
+                h1{
+                    line-height: 3rem;
+                }
+                h2{
+                    margin-top: 8px*2;
                     line-height: 2.5rem;
 
                 }
             }
+
             .actions{
                 justify-content: flex-start;
                 margin-top: 8px*4;
@@ -428,5 +472,26 @@
         .section .projects{
             grid-template-columns: 1fr;
         }
+    }
+  }
+
+  @keyframes rotate-globe{
+    0%{
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    50%{
+        transform: rotate(180deg);
+        opacity: 0.7;
+    }
+    88%{
+        transform: rotate(320deg);
+        opacity: 0.8;
+
+    }
+    100%{
+        transform: rotate(360deg);
+        opacity: 1;
+
     }
   }
