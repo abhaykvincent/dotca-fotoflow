@@ -1,38 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './ServicesDetails.scss'
+import { pricingData } from '../../../data/pricingData';
 
 const ServicesDetails = ({ formData,setFormData, currentForm, setCurrentForm, handleSubmit}) => {
   
   const [activeValidation, setActiveValidation] = useState(false);
   const [amount, setAmount] = useState(0);
-  const pricingData = {
-    photography: {
-      photographers: {
-        primary: 100,
-        secondary: 100,
-        premium: 200,
-      },
-      delivery: {
-        standard: 0,
-        express: 200,
-        premium: 400,
-      },
-      rawPhotos: 300,
-    },
-    videography: {
-      videographers: {
-        primary: 150,
-        secondary: 100,
-        premium: 200,
-      },
-      delivery: {
-        standard: 0,
-        express: 400,
-        premium: 600,
-      },
-      rawVideos: 500,
-    },
-  };
+  
   const setService = (service) => {
     setFormData((prevData) => {
       const updatedService = (currentService, shouldUpdate) => ({
@@ -508,14 +482,12 @@ const ServicesDetails = ({ formData,setFormData, currentForm, setCurrentForm, ha
           </div>
           <div className="button primary-dark box-reveal-anm"
               onClick={()=>{handleSubmitForm()}}
-            >BOOK SESSION</div>
+            >NEXT</div>
         </div>
       </div>
       </form>
     </div>
   );
 };
-
 export default ServicesDetails;
-
-// Line Complexity => 388 -> 519 ->
+// Line Complexity => 388 -> 519 -> 492 ->

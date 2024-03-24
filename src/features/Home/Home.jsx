@@ -7,12 +7,17 @@ import EventCard from '../../components/Event/EventCard/EventCard';
 function Home({ events,projects,loadProjects}) {
 
     document.title = `FotoFlow | Home`;
-    const recentProjects = getRecentProjects(projects, 4);
+    const recentProjects = getRecentProjects(events, 8);
     const selectionCompletedProjects = getProjectsByStatus(projects, 'selection-completed');
     const requestPendingProjects = getProjectsByStatus(projects, 'request-pending');
-    const pendingEvents = getEventsByStatus(events, 'pending');
-    const recentEvents = getRecentEvents(events, 10, pendingEvents);
-    // console.log(recentEvents);
+
+    console.log('All Events')
+    console.log(recentProjects)
+    let pendingEvents = getEventsByStatus(events, 'pending');
+    pendingEvents = getRecentProjects(pendingEvents, 4);
+    console.log('selected pendings')
+    console.log(pendingEvents)
+    const recentEvents =  getRecentEvents(recentProjects, 4, pendingEvents);
 
     return (
         <main className="home">
@@ -24,6 +29,7 @@ function Home({ events,projects,loadProjects}) {
                             {/* Define the linear gradient */}
                             <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                                 <stop offset="0%" style={{ stopColor: '#30d158', stopOpacity: 1 }} />
+                                <stop offset="50%" style={{ stopColor: '#136a29', stopOpacity: 1 }} />
                                 <stop offset="100%" style={{ stopColor: '#136a29', stopOpacity: 1 }} />
                             </linearGradient>
                             {/* Apply the gradient to the text */}
@@ -59,13 +65,14 @@ function Home({ events,projects,loadProjects}) {
                                 ) : (
                                     <p className="message">No recent events</p>)
                             }
+                            {events.length > 4 &&
                             <Link className="project see-all" to={`/events`} >
                                 <div className="project-cover"
                                 ></div>
                                 <div className="project-details">
                                     <div className="details-top">
 
-                                        <h4 className="project-title">See all {pendingEvents.length} Events</h4>
+                                        <h4 className="project-title">See all {events.length} Events</h4>
                                         <p className="project-type"></p>
                                     </div>
                                 </div>
@@ -73,6 +80,7 @@ function Home({ events,projects,loadProjects}) {
                                     
                                 </div>
                             </Link>
+}
                             </div>
                         </div>
 
@@ -91,7 +99,7 @@ function Home({ events,projects,loadProjects}) {
                             </div>
                             <div className="projects">
                             {
-                                recentEvents.length !== 0? (
+                                recentEvents.length !== 0 ? (
                                     recentEvents.map((project, index) => (
                                     <EventCard
                                         key={project.id}
@@ -101,20 +109,22 @@ function Home({ events,projects,loadProjects}) {
                                 ) : (
                                     <p className="message">No recent events</p>)
                             }
-                            <Link className="project see-all" to={`/events`} >
-                                <div className="project-cover"
-                                ></div>
-                                <div className="project-details">
-                                    <div className="details-top">
+                            {
+                                recentEvents.length > 4 &&
+                                <Link className="project see-all" to={`/events`} >
+                                    <div className="project-cover"
+                                    ></div>
+                                    <div className="project-details">
+                                        <div className="details-top">
 
-                                        <h4 className="project-title">See all {events.length} Events</h4>
-                                        <p className="project-type"></p>
+                                            <h4 className="project-title">See all {events.length} Events</h4>
+                                            <p className="project-type"></p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="project-options">
-                                    
-                                </div>
-                            </Link>
+                                    <div className="project-options">
+                                        
+                                    </div>
+                                </Link>}
                             </div>
                         </div>
 

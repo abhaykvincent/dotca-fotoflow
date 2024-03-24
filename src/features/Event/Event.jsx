@@ -17,17 +17,22 @@ export default function Event({ events,updateEventLocal,deleteEventLocal,addPaym
   let { id } = useParams();
   // States
   const [ rescheduleModal, setReschduleModal ] = useState(false);
-  const [rescheduleDate, setRescheduleDate] = useState(null);
+  const [rescheduleDate, setRescheduleDate] = useState();
 
-  
+  let event;
+  useEffect(()=>{
+
+    setRescheduleDate(event.dateOfShoot)
+  },[event])
   if (!events) return;
-  const event = events.find((p) => p.id === id);
+  event = events.find((p) => p.id === id);
   // console.log(event)
   if (!event) {
     setTimeout(()=>navigate('/events'),100); 
     return;
   }
   else document.title = `${event.firstName}'s ${event.type}`
+
 
   // Functions 
   const confirmEvent = ()=>{
@@ -58,6 +63,8 @@ export default function Event({ events,updateEventLocal,deleteEventLocal,addPaym
     })
     setReschduleModal(false);
   }
+
+  
 
 
   return (

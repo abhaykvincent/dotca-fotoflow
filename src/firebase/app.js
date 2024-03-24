@@ -29,7 +29,7 @@ const app = initializeApp(firebaseConfig);
 
 const storage = getStorage(app);
 const db = getFirestore(app); 
-const analytics = getAnalytics(app);
+const analytics = getAnalytics();
 //setAnalyticsCollectionEnabled(true);
 
 

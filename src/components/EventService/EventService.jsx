@@ -21,7 +21,7 @@ export default function EventService ({ event, service}) {
 				<div className="header-icon"></div>
 			</div>
 			{/* Crew */}
-			<div className="label">Crew</div>
+			<div className="label">{capitalizeFirstLetter(service)} Crew</div>
 			<div className="box">{crewLabel} 1</div>
 			<div className={`box ${crewCount > 1 ? '':'hide'} `}>{crewLabel} 2</div>
 			{ 	

@@ -410,7 +410,7 @@ body{
           width: 100%;
           background-color: $dark-3;
           border: none;
-          font-size: 1rem;
+          font-size: 16px;
           border-radius: 4px;
           height: 8px*3;
           padding: 8px*2 8px;
@@ -564,11 +564,11 @@ body{
 @keyframes project-page-reveal {
   0% {
     opacity: 0;
-    transform: translateY(-8px*2);
+    margin-left: -8px*2;
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    margin-left: 0;
   }
 }
 
@@ -882,6 +882,209 @@ margin-left: 4px;
       }}
       .photos{
         grid-template-columns: 1fr 1fr ;
+      }// Modal
+      .modal{
+        position: fixed;
+        top: 50vh;
+        margin-top: -50%;
+        left: 8px*2;
+        width: 100%;
+        max-width: calc(100% - 8px*4);
+        background-color: $dark-2;
+        border-radius: $border-radius-1;
+        border: 1px solid $dark-0;
+        padding-bottom: 8px*8;
+        z-index: 20;
+        .modal-header{
+          display: grid;
+          grid-template-columns: 8px*8 auto 8px*8;
+          position: relative;
+          width: 100%;
+          height: 8px*4;
+          font-size: 0.9rem;
+          font-weight: 600;
+          line-height: 8px*3.5;
+          text-align: center;
+          background-color: $dark-3;
+          border-radius: $border-radius-1 $border-radius-1 0 0;
+          border-bottom: 1px solid $dark-1;
+          .modal-controls{
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            margin: 8px;
+            .control{
+              height: 8px;
+              width: 8px;
+              border-radius: 50%;
+              &.close{
+                background-color: $red-default-dark;
+              }
+              &.minimize{
+                background-color: $yellow-default-dark;
+              }
+              &.maximize{
+                background-color: $green-default-dark;
+              }
+            }
+          }
+        }
+        .form-section{
+          display: grid;
+          justify-content: center;
+          min-width: 8px*40;
+          margin: 8px*3 auto;
+          padding: 0 8px*5;
+          &.contact{
+    
+            .field{
+              display: grid;
+              grid-template-columns: auto 8px*24;
+            }
+          }
+          .field{
+            display: grid;
+            justify-content: end;
+            justify-items: center;
+            grid-template-columns: auto 8px*24;
+            align-items: center;
+            gap: 8px*1;
+            margin: 8px*1.5 8px;
+            font-size: 0.9rem;
+            label{
+              text-align: right ;
+              color: $gray-default-dark;
+            } 
+            input{
+    
+              width: 100%;
+              background-color: $dark-3;
+              border: none;
+              font-size: 16px;
+              border-radius: 4px;
+              height: 8px*3;
+              padding: 8px*2 8px;
+              @include boxed;
+            }
+            select{
+    
+              width: 100%;
+              background-color: $dark-3;
+              border: none;
+              font-size: 1rem;
+              border-radius: 4px;
+              height: 8px*5;
+              padding: 8px 8px;
+              @include boxed;
+              // chrome select default dropdown position
+               .option div{
+                width: 4px;
+                height: 4px;
+                color: red;
+              }
+    
+            }
+            &:hover{
+              label{
+                color: $gray3-default-light;
+              }
+            }
+          }
+        }
+        .actions{
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          position: absolute;
+          bottom: 0px;
+          border-top: 1px solid $dark-1;
+          padding: 8px;
+          
+        }
+        &.delete-project{
+          .modal-body{
+            text-align: center;
+            padding: 8px*2;
+            .message{
+              margin-bottom: 8px;
+            }
+            .note{
+              color: $gray3-default-dark;
+              strong{
+                color: $gray2-default-dark;
+              }
+            }
+          }
+        }
+        &.add-payment{
+          .error-message{
+            display: grid;
+            grid-row: 2/3;
+            grid-column: 2/3;
+            color: $red-default-dark;
+          }
+        }
+        &#loginModal{
+          max-width: 8px*50;
+          left: 50vw;
+          top: 50vH;
+          transform: translate(-50%, -50%);
+          padding: 0;
+          .logo{
+            position: absolute;
+            top: -8px*16;
+            width: 100%;
+            height: 8px*10;
+            background-image: url('./assets/img/fotoflow-pro-logo.svg');
+            background-size: 50%;
+            background-position: center;
+          }
+          .form-section{
+            min-width: 8px*30;
+            margin: 0;
+            p{
+              margin: 8px*2 8px;
+              text-align: center;
+            }
+          }
+          .actions{
+            position: relative;
+            .button{
+              height: 8px*5;
+              display: flex;
+              align-items: center;
+              gap: 8px*2;
+              background-color: $dark-1;
+              border: 1px solid $dark-0;
+              .google-logo{
+                width: 8px*4;
+                height: 8px*4;
+                border: none;
+                background-image: url('./assets/img/google-logo.png');
+                background-size: 100%;
+              }
+            }
+          }
+        }
+      }
+      .modal-container{
+    
+        position: fixed;
+        top: 0;
+        left:0;
+        width: 100vw;
+        height: 100vh;
+        padding: 8px*2;
+      }
+      .modal-backdrop{
+        position: fixed;
+        top: 0;
+        left:0;
+        width: 100vw;
+        height: 100vh;
+        background-color: $dark-3;
+        z-index: 19;
+        opacity: 0.8;
       }
     }
   }
@@ -931,6 +1134,7 @@ margin-left: 4px;
       left: 0;
       width: calc(100vw );
       padding: 0;
+      
       .photos{
         grid-template-columns: 1fr ;
       }
@@ -974,6 +1178,8 @@ margin-left: 4px;
           justify-content: center;
         }
       }
+
+      
     }
     
     

@@ -113,13 +113,13 @@
             display: flex;
             padding: 0 8px;
             .icon{
-                height: 8px*4;
+                height: 8px*8;
                 width: 8px*4;
-                padding: 8px*3;
+                padding: 8px*2;
                 margin-right: 8px*1;
                 background-image: url('../../assets/img/icons/camera.svg');
-                background-size: 70%;
-                background-position: center 70% ;
+                background-size: 80%;
+                background-position: center  ;
             }
         }
         .project-header{
