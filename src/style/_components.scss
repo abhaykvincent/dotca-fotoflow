@@ -121,13 +121,15 @@
     justify-content: center;
     position: absolute;
     top: 8px*10;
-    left: $sidebar-width + 8px*2;
-    width: calc(100% - $sidebar-width - 8px*6);
+    left: 50vw;
+    width: calc(50% - $sidebar-width - 8px*6);
+    min-width: 8px*28;
     height: 8px*5;
     margin: 8px;
     padding: 8px*4;
     background-color: $dark-3;
     border-radius: $border-radius-1;
+    transform: translateX(-50%);
     @include boxed;
     @include boxShadow;
     .loader{

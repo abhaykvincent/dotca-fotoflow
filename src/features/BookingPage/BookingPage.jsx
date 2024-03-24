@@ -14,7 +14,6 @@ import { analytics } from '../../firebase/app';
 
 const BookingPage = ({addEvent}) => {
 
-  logEvent(analytics,'booking_start');
   const [formData, setFormData] = useState({
     email: '',
     firstName: '',
