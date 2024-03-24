@@ -10,6 +10,7 @@ import { db, storage } from '../firebase/app';
 import { collection, doc, updateDoc } from "firebase/firestore";
 import { delay } from "./generalUtils";
 import { generateMemorablePIN } from "./stringUtils";
+import { setEventCoverPhotoInFirestore } from "../firebase/functions/firestore";
 
 
 export const fetchImageUrls = async (id, collectionId, setImageUrls, page, pageSize) => {
@@ -366,4 +367,23 @@ try {
     console.error('Error deleting images:', error);
 }
 };
+
+// Events
+// upload cover photo to event folder with event-id given inside projects folder 
+
+export const uploadEventCoverPhoto = async (coverFile, eventId,importFileSize,setUploadStatus,showAlert) => {
+    console.log(coverFile)
+    const storageRef = ref(storage, `projects/events/${eventId}/cover/${coverFile.name}`);
+    try {
+        const uploadTask = uploadBytesResumable(storageRef, coverFile);
+        await uploadTask;
+        const url = await getDownloadURL(uploadTask.snapshot.ref);
+        await setEventCoverPhotoInFirestore(eventId,url)
+        showAlert('success','Uploaded')
+        return url;
+    } catch (error) {
+        console.error("Error uploading event cover photo:", error);
+        throw error;
+    }
+}
   

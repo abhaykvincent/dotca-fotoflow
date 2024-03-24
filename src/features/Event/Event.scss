@@ -43,14 +43,29 @@
 	display: flex;
 	height: auto;
 	gap: 8px*1;
-	margin: 8px*4 0;
+	margin: 8px*3 0;
 	.event-cover{
 		height: 8px*16;
 		width: 8px*19;
 		margin-left: 8px*2;
+		padding: 0;
 		background-color: $dark-2;
-		background-size: 100%;
-		background-position: top 20% left;
+		background-size: cover;
+		background-position: center;
+		.options{
+			input{
+				display: none;
+			}
+			label{
+				width: calc(100% - 8px*1);
+				font-size: 0.8rem;
+				font-weight: normal;
+				padding: 4px 8px;
+				position: absolute;
+				bottom: 0px;
+				background-color: rgba(0, 0, 0, 0.4);
+			}
+		}
 		&.wedding{
 			background-image: url('../../assets/img/event-covers/wedding.png');
 		}
@@ -83,7 +98,6 @@
 	  .event-options{
 		display: flex;
 		justify-content: flex-end;
-		align-items: flex-end;
 	  }
 	  .client-contact{
 		margin-top: 8px;
@@ -124,9 +138,14 @@
 	align-items: center;
 	gap: 8px*2;
 	padding: 8px*3 0;
-	border-top: 1px solid $dark-1;
-	border-bottom: 1px solid $dark-1;
+	border-top: 1px solid $dark-2;
+	border-bottom: 1px solid $dark-2;
 	margin: 0 8px*2;
+	background: 
+		linear-gradient(90deg, $dark-2 0, transparent 10%, transparent 90%, $dark-2 100%),
+		linear-gradient(180deg, $dark-3 -2px, $dark-2 8px, transparent 100%),
+		linear-gradient(0deg, $dark-3 -2px, $dark-2 8px, transparent 100%)
+		;
 	.left{
 		display: grid;
 		gap: 8px*0.5;
@@ -140,7 +159,7 @@
 			font-weight: 400;
 			margin-top: -8px;
 			.event-time{
-				font-size: 1.5rem;
+				font-size: 1.2rem;
 				font-weight: 400;
 				color: $gray5-accessible-light;
 			}
@@ -190,6 +209,7 @@
 			font-size: 0.9rem;
 			align-items: center;
 			align-content: center;
+			margin-top: 8px*1;
 			.icon{
 				width: 8px*3;
 				height: 100%;
@@ -718,7 +738,6 @@
 		.event-options{
 		  display: flex;
 		  justify-content: flex-end;
-		  align-items: flex-start;
 		}
 		.client-contact{
 		  margin-top: 8px;
