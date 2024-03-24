@@ -274,6 +274,20 @@
                         margin-bottom: 8px;
                         line-height:0.9rem;
                         color: $gray5-accessible-light;
+                        &.beta{
+                            margin-left: 8px*5;
+                            span.tag{
+                                font-size: 0.4rem;
+                                padding: 2px 4px;
+                                border: 1px solid $green-accessible-light;
+                                color: $green-accessible-dark;
+                                border-radius: 2px;
+                                margin-left: 8px;
+                                opacity: 0.7;
+                                margin-bottom: 8px*2;
+                            }
+                        }
+                        
                     }
                 }
                 .validity{
@@ -297,7 +311,7 @@
                     font-size: 0.9rem;
                     margin-bottom: 8px*1;
                     text-align: center;
-                    color: $gray5-default-light;
+                    color: $gray4-default-light;
                 }
                 .waitlist-label{
                     font-size: 0.7rem;
@@ -308,9 +322,10 @@
                     width: 100%;
                     margin: 0;
                     margin-bottom: 0px;
+                    color: $gray4-default-light;
                 }
                 &.studio{
-                    border: 2px solid $gray-accessible-dark;
+                    border: 2px solid $green-accessible-light;
                     background-color: $dark-3;
                     padding-bottom: 8px*3;
                     overflow: hidden;
@@ -341,7 +356,7 @@
                 &.freelancer{
                     padding-bottom: 8px*3;
                     background-color: $dark-3;
-                    border: 1px solid $green-accessible-light;
+                    border: 1px solid $gray2-accessible-dark;
                     overflow: hidden;
 
                     .plan-name{
