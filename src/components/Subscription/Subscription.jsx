@@ -48,11 +48,11 @@ function Subscription({ }) {
                         <div className="core-features">
                             <h4>2.5 GB storage</h4>
                             <h4>Bookings</h4>
-                            <h4>Gallery</h4>
+                            <h4 className='beta'>Gallery<span className='tag'>BETA</span></h4>
                         </div>
                         <div className="plan-features">
                             <p className="features">Events</p>
-                            <p className="features">Galleries</p>
+                            <p className="features">Galleries </p>
                         </div>
                         <div className="validity disable">
                             <p className='label'>Plan expries on</p>
@@ -85,9 +85,10 @@ function Subscription({ }) {
                         </div>
                         <div className="plan-features">
                             <p className="features">Invoices</p>
-                            <p className="features">Payments</p>
-                            <p className="features">Expances Tracker</p>
-                            <p className="features">Access Cold Storage</p>
+                            <p className="features">Expances</p>
+                            <p className="features">Collabration</p>
+                            <p className="features">Online Payments</p>
+                            <p className="features">Cold Storage Access </p>
                         </div>
                         <p className='waitlist-label'>Join the Studio Waitlist Today</p>
                         <div className="button primary"> Join Waitlist</div>
