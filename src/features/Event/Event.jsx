@@ -22,7 +22,7 @@ export default function Event({ events,updateEventLocal,deleteEventLocal,addPaym
   const [coverFile,setCoverFile]  = useState()
   const  [isPhotosImported,setIsPhotosImported] = useState(false)
   const [importFileSize, setImportFileSize] = useState();
-  const  [uploadStatus,setUploadStatus] = useState(false)
+  const  [uploadStatus,setUploadStatus] = useState('close')
 
   let event;
   useEffect(()=>{
@@ -93,8 +93,8 @@ export default function Event({ events,updateEventLocal,deleteEventLocal,addPaym
     <main className='event-page'>
       <div className="event-cover-info">
         <div 
-        className={`event-cover box ${event.type}`}
-        style={{backgroundImage:`url(${event.eventCover})`}}>
+        className={`event-cover box ${event.type} ${uploadStatus==='open' ? 'uploading' : ''}`}
+        style={{backgroundImage:`url(${uploadStatus==='open' ? 'https://media.tenor.com/t5DMW5PI8mgAAAAi/loading-green-loading.gif' : event.eventCover} )`}}>
 
         <div className="options">
           {

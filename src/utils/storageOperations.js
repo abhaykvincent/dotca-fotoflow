@@ -378,8 +378,10 @@ export const uploadEventCoverPhoto = async (coverFile, eventId,importFileSize,se
         const uploadTask = uploadBytesResumable(storageRef, coverFile);
         await uploadTask;
         const url = await getDownloadURL(uploadTask.snapshot.ref);
+        console.log(url)
         await setEventCoverPhotoInFirestore(eventId,url)
         showAlert('success','Uploaded')
+        setUploadStatus('completed')
         return url;
     } catch (error) {
         console.error("Error uploading event cover photo:", error);
