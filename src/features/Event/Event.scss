@@ -54,18 +54,32 @@
 		background-position: center;
 		background-repeat: no-repeat;
 		background-position: center;
+
 		.options{
 			input{
 				display: none;
 			}
 			label{
-				width: calc(100% - 8px*1);
+				width: calc(100% - 8px*2);
 				font-size: 0.8rem;
 				font-weight: normal;
 				padding: 4px 8px;
 				position: absolute;
 				bottom: 0px;
+				left: 4px;
+				display: none;
 				background-color: rgba(0, 0, 0, 0.4);
+			}
+		}
+		&:hover{
+			transform: scale(1);
+			.options{
+				input{
+					display: none;
+				}
+				label{
+					display: block;
+				}
 			}
 		}
 		&.wedding{
@@ -83,6 +97,7 @@
 			background-repeat: no-repeat;
 			background-position: center;
 		}
+
 	}
 	.event-info{
 	  display: grid;
@@ -219,11 +234,11 @@
 			align-content: center;
 			margin-top: 8px*1;
 			.icon{
-				width: 8px*3;
+				width: 8px*2;
 				height: 100%;
 				background-image: url('../../assets/img/icons/location-dot.svg');
 				background-size: 80%;
-				background-position: center;
+				background-position: top 8px;
 				opacity: 0.6;
 			}
 			.address{
@@ -291,6 +306,7 @@
 			z-index: 19;
 			transition-duration: 0.4s;
 			.react-calendar{
+				width: AUTO;
 				position: relative;
 				transition-duration: 0.2s;
 				border: 1px solid $dark-1;
@@ -450,6 +466,7 @@
 	padding: 8px*2;
 	display: flex;
 	gap: 8px*5;
+	overflow-x: scroll;
 	.label{
 		color: $gray2-accessible-dark;
 		font-size: 1rem;
