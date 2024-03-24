@@ -26,9 +26,13 @@ import BookingPage from './features/BookingPage/BookingPage';
 import Events from './features/Events/Events';
 import Event from './features/Event/Event';
 import Subscription from './components/Subscription/Subscription';
+import useScrollToTop from './hooks/ScrollToTop';
 
 function App() {
-  
+  //forcefully go browser full screen
+
+
+  useScrollToTop()
   const navigate = useNavigate();
   const [authenticated,setAuthenticated] = useState(false)
   const logout = () =>{
@@ -67,7 +71,7 @@ useEffect(() => {
   }
 }, [uploadStatus])
 useEffect(() => {
-  // console.log(events)
+  console.log(events)
 }, [events])
   // Fetch Projects
   useEffect(() => {

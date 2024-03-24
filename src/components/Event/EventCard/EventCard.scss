@@ -441,7 +441,7 @@
             &.pending{
                 .status-signal{
                     opacity: 0;
-                    $delay: 0.6s + 4.73s * ($i );
+                    $delay: 0.6s + 0.73s * ($i );
                     animation: glowUp 1s ease-in-out $delay infinite !important;
                     animation-fill-mode: forwards;
                     animation-timing-function: ease-out;
